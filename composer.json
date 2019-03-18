@@ -29,12 +29,12 @@
         "symfony/yaml": "*"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "^4.0",
         "symfony/debug-pack": "*",
         "symfony/maker-bundle": "^1.0",
         "symfony/profiler-pack": "*",
         "symfony/test-pack": "*",
-        "symfony/web-server-bundle": "*"
+        "symfony/web-server-bundle": "*",
+        "symfony/phpunit-bridge": "4.3.*"
     },
     "autoload": {
         "psr-4": {
