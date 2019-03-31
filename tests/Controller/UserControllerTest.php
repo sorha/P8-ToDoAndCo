@@ -2,17 +2,15 @@
 
 namespace App\Tests\Controller;
 
-use App\Controller\DefaultController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class DefaultControllerTest extends WebTestCase
+class UserControllerTest extends WebTestCase
 {
-    public function testIndexActionWithoutLogin()
+    public function testListActionWithoutLogin()
     {
         // If the user isn't logged, should redirect to the login page
         $client = static::createClient();
-        $client->request('GET', '/');
+        $client->request('GET', '/users');
         static::assertSame(302, $client->getResponse()->getStatusCode());
 
         $crawler = $client->followRedirect();

@@ -34,7 +34,8 @@
         "symfony/profiler-pack": "*",
         "symfony/test-pack": "*",
         "symfony/web-server-bundle": "*",
-        "symfony/phpunit-bridge": "4.3.*"
+        "symfony/phpunit-bridge": "4.3.*",
+        "doctrine/doctrine-fixtures-bundle": "^3.1@dev"
     },
     "autoload": {
         "psr-4": {
