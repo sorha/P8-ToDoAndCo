@@ -2,8 +2,10 @@
 
 namespace App\Tests\Controller;
 
+use App\DataFixtures\TestFixtures;
 use App\Controller\DefaultController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Console\Input\StringInput;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class DefaultControllerTest extends WebTestCase

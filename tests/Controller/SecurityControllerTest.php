@@ -2,9 +2,10 @@
 
 namespace App\Tests\Controller;
 
+use App\Tests\DataFixtures\DataFixtureTestCase;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class SecurityControllerTest extends WebTestCase
+class SecurityControllerTest extends DataFixtureTestCase
 {
     public function testLogin()
     {
@@ -18,7 +19,7 @@ class SecurityControllerTest extends WebTestCase
         static::assertSame(1, $crawler->filter('input[name="_password"]')->count());
 
         $form = $crawler->selectButton('Se connecter')->form();
-        $form['_username'] = 'Sorha';
+        $form['_username'] = 'user';
         $form['_password'] = 'test';
         $client->submit($form); 
 
@@ -44,7 +45,7 @@ class SecurityControllerTest extends WebTestCase
         static::assertSame(1, $crawler->filter('input[name="_password"]')->count());
 
         $form = $crawler->selectButton('Se connecter')->form();
-        $form['_username'] = 'Alex';
+        $form['_username'] = 'admin';
         $form['_password'] = 'test';
         $client->submit($form); 
 
@@ -70,7 +71,7 @@ class SecurityControllerTest extends WebTestCase
         static::assertSame(1, $crawler->filter('input[name="_password"]')->count());
 
         $form = $crawler->selectButton('Se connecter')->form();
-        $form['_username'] = 'Alex';
+        $form['_username'] = 'user';
         $form['_password'] = 'WrongPassword';
         $client->submit($form); 
 

@@ -87,16 +87,20 @@ class TaskController extends AbstractController
     {
         if ($this->getUser() !== $task->getUser()) 
         {
+            if ($task->getUser()->getId() === -1)
+            {
+                if(!$this->isGranted('ROLE_ADMIN'))
+                {
+                    $this->addFlash('error', 'Seul un admin peut supprimer une tâche de l\'utilisateur anonyme !');
+                    return $this->redirectToRoute('task_list');
+                }
+            }
+
             if(!$this->isGranted('ROLE_ADMIN'))
             {
                 $this->addFlash('error', 'Seul l\'auteur de la tâche ou un admin peut la supprimer !');
                 return $this->redirectToRoute('task_list');
             }
-        }
-        
-        if ($task->getUser()->getId() === -1)
-        {
-            $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Seul un admin peut supprimer une tâche de l\'utilisateur anonyme !');
         }
 
         $em = $this->getDoctrine()->getManager();
