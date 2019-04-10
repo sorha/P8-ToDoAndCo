@@ -89,7 +89,6 @@ class TestFixtures extends Fixture
           $manager->persist($task);
 
           // Desactive l'autoincrement des id
-
           $metadata = $manager->getClassMetadata(Task::class);
           $metadata->setIdGenerator(new \Doctrine\ORM\Id\AssignedGenerator());
           $metadata->setIdGeneratorType(\Doctrine\ORM\Mapping\ClassMetadata::GENERATOR_TYPE_NONE);
@@ -99,5 +98,14 @@ class TestFixtures extends Fixture
           $metadata->setIdGeneratorType(\Doctrine\ORM\Mapping\ClassMetadata::GENERATOR_TYPE_NONE);
 
           $manager->flush();
+
+          // Reactive l'autoincrement des id pour que les actions de creation fonctionnent
+          $metadata = $manager->getClassMetadata(Task::class);
+          $metadata->setIdGenerator(new \Doctrine\ORM\Id\IdentityGenerator());
+          $metadata->setIdGeneratorType(\Doctrine\ORM\Mapping\ClassMetadata::GENERATOR_TYPE_IDENTITY);
+
+          $metadata = $manager->getClassMetadata(User::class);
+          $metadata->setIdGenerator(new \Doctrine\ORM\Id\IdentityGenerator());
+          $metadata->setIdGeneratorType(\Doctrine\ORM\Mapping\ClassMetadata::GENERATOR_TYPE_IDENTITY);
     }
 }
