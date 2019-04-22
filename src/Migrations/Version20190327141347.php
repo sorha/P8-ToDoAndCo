@@ -9,20 +9,15 @@ use Doctrine\Migrations\AbstractMigration;
 
 /**
  * Auto-generated Migration: Please modify to your needs!
+ * @codeCoverageIgnore
  */
 final class Version20190327141347 extends AbstractMigration
 {
-    /**
-     * @codeCoverageIgnore
-     */
     public function getDescription() : string
     {
         return '';
     }
-    
-    /**
-     * @codeCoverageIgnore
-     */
+
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
@@ -32,9 +27,6 @@ final class Version20190327141347 extends AbstractMigration
         $this->addSql('ALTER TABLE task CHANGE user_id user_id INT NOT NULL');
     }
 
-    /**
-     * @codeCoverageIgnore
-     */
     public function down(Schema $schema) : void
     {
         // this down() migration is auto-generated, please modify it to your needs

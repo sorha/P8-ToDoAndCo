@@ -9,20 +9,15 @@ use Doctrine\Migrations\AbstractMigration;
 
 /**
  * Auto-generated Migration: Please modify to your needs!
+ * @codeCoverageIgnore
  */
 final class Version20190326072753 extends AbstractMigration
 {
-    /**
-     * @codeCoverageIgnore
-     */
     public function getDescription() : string
     {
-        return '';
+        return 'Adding an anonymous user for the past task to be at least linked to one user';
     }
     
-    /**
-     * @codeCoverageIgnore
-     */
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
@@ -34,9 +29,6 @@ final class Version20190326072753 extends AbstractMigration
         $this->addSql('CREATE INDEX IDX_527EDB25A76ED395 ON task (user_id)');
     }
     
-    /**
-     * @codeCoverageIgnore
-     */
     public function down(Schema $schema) : void
     {
         // this down() migration is auto-generated, please modify it to your needs
